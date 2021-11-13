@@ -3,7 +3,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     color: #fff;
 
     margin-top: 23px;
+}
+
+
+@media only screen and (max-width: 460px) {
+    input.my-style{
+        width: 100%;
+    }
 }

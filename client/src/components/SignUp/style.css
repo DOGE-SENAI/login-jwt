@@ -3,7 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     color: #fff;
 
     margin-top: 23px;
+
+    width: 100%;
 }

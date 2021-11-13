@@ -17,9 +17,10 @@ const SignUp = () => {
 
     return (
         <div className="registration">
+
             <h1 className="display-3 m-4">Criar Conta</h1>
 
-            <form className="d-flex flex-column w-50">
+            <form className="d-flex flex-column w-75">
                 <div className="mb-3">
                     <label className="form-label fs-5">Username:</label>
                     <div className="mb-3">
@@ -53,7 +54,7 @@ const SignUp = () => {
                 <div className="d-flex align-items-center justify-content-center">
                     <button
                         type="button"
-                        className="btn btn-outline-success btn-lg"
+                        className="btn btn-outline-success btn-lg w-75"
                         onClick={register}
                     >
                         Criar Conta

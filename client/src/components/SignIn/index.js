@@ -67,13 +67,13 @@ const SignIn = () => {
             
             <h1 className="display-3 m-4">Entrar</h1>
 
-            <form className="d-flex flex-column w-50">
+            <form className="d-flex flex-column w-75">
                 <div className="mb-3">
                     <label className="form-label fs-5">Username:</label>
                     <div className="mb-3">
                         <input
                             type="text"
-                            className="form-control form-control-lg"
+                            className="form-control form-control-lg my-style"
                             placeholder="Username..."
                             required
                             onChange={(e) => {
@@ -101,7 +101,7 @@ const SignIn = () => {
                 <div className="d-flex justify-content-around">
                     <button
                         type="button"
-                        className="btn btn-primary btn-lg"
+                        className="btn btn-primary btn-lg w-75"
                         onClick={login}
                     >
                         Entrar
