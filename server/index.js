@@ -19,6 +19,7 @@ app.use(cors({
     methods: ["GET", "POST"],
     credentials: true
 }));
+
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -44,7 +45,6 @@ const db = mysql.createConnection({
 app.post('/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
 
@@ -128,7 +128,6 @@ app.post('/login', (req, res) => {
                 res.json({
                     auth: false,
                     message: "no user exists"
-                    
                 });
             }
             
@@ -136,6 +135,15 @@ app.post('/login', (req, res) => {
         }
     );
 });
+
+app.get("/logout", (req, res) => {
+    if (req.session.user) {
+        res.send({ loggedIn: true });
+        
+    } else {
+        res.send({ loggedIn: false, message: "You are not logged in." })
+    }
+})
 
 app.listen(3001, () => {
     console.log("running server in http://localhost:3001")
