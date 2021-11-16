@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SignUp from '../../components/SignUp';
 import SignIn from '../../components/SignIn';
+import PageStructure from '../../components/PageStructure';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import './style.css';
@@ -35,7 +36,7 @@ function Login() {
 	}, [clickTab]);
 
 	return (
-		<>
+		<PageStructure>
 			<section className="container-main-form">
 				<div className="container-main-button">
 					<div className="container-button">
@@ -59,7 +60,6 @@ function Login() {
 					</div>
 				</div>
 
-			
 				<div className="container-form">
 					<div style={{
 						display: displayReg,
@@ -74,8 +74,7 @@ function Login() {
 					</div>
 				</div>
 			</section>
-
-		</>
+		</PageStructure>
 	);
 }
 

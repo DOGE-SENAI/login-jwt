@@ -80,7 +80,7 @@ const verifyJWT = (req, res, next) => {
 };
 
 app.get('/isUserAuth', verifyJWT, (req, res) => {
-    res.send("You are authenticated congrats")
+    res.send({ auth: true, message: "You are authenticated congrats" })
 })
 
 app.get("/login", (req, res) => {
