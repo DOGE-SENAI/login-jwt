@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Axios from 'axios';
 import './style.css';
 
@@ -7,7 +7,6 @@ const SignIn = () => {
     const [password, setPassword] = useState('');
 
     const [loginAuth, setLoginAuth] = useState(false);
-    const [loginStatus, setLoginStatus] = useState("");
 
     Axios.defaults.withCredentials = true;
 
@@ -18,11 +17,9 @@ const SignIn = () => {
         }).then((response) => {
             if (!response.data.auth) {
                 setLoginAuth(false);
-                setLoginStatus(response.data.message);
             } else {
                 localStorage.setItem("token", response.data.token);
                 setLoginAuth(true);
-                setLoginStatus(response.data.result[0].username);
             };
         });
     };
@@ -49,18 +46,6 @@ const SignIn = () => {
             console.log(response);
         })
     }
-
-    useEffect(() => {
-        Axios.get("http://localhost:3001/login").then((response) => {
-            console.log(response)
-            if (response.data.loggedIn) {
-                setLoginStatus(response.data.user[0].username);
-            } else {
-                setLoginStatus("Nenhum Usuário Conectado")
-            }
-
-        });
-    }, [])
 
     return (
         <div className="login">
