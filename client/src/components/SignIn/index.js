@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
+    const navigate = useNavigate();
+    
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -20,6 +23,7 @@ const SignIn = () => {
             } else {
                 localStorage.setItem("token", response.data.token);
                 setLoginAuth(true);
+                navigate('/logando');
             };
         });
     };
