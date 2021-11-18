@@ -7,12 +7,20 @@ const SignUp = () => {
     const [passwordReg, setPasswordReg] = useState('');
 
     const register = () => {
-        Axios.post('http://localhost:3001/register', {
-            username: usernameReg,
-            password: passwordReg,
-        }).then((response) => {
-            console.log(response);
-        });
+        if ((usernameReg === "") || (passwordReg === "")) {
+            window.alert("Preenche os campos para criar uma conta")
+        } else {
+            Axios.post('http://localhost:3001/register', {
+                username: usernameReg,
+                password: passwordReg,
+            }).then((response) => {
+                console.log(response);
+            });
+        }
+
+        document.getElementById("usernameInput").value = "";
+        document.getElementById("passwordInput").value = "";
+
     };
 
     return (
@@ -28,6 +36,7 @@ const SignUp = () => {
                             type="text"
                             className="form-control form-control-lg"
                             placeholder="ex: Adam@123"
+                            id="usernameInput"
                             required
                             onChange={(e) => {
                                 setUsernameReg(e.target.value);
@@ -43,6 +52,7 @@ const SignUp = () => {
                             type="password"
                             className="form-control form-control-lg"
                             placeholder="Senha"
+                            id="passwordInput"
                             onChange={(e) => {
                                 setPasswordReg(e.target.value);
                             }}

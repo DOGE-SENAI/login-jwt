@@ -23,23 +23,10 @@ const SignIn = () => {
             } else {
                 localStorage.setItem("token", response.data.token);
                 setLoginAuth(true);
-                navigate('/logando');
+                navigate('/home');
             };
         });
     };
-
-    // const logout = () => {
-    //     Axios.get('http://localhost:3001/logout')
-    //         .then((response) => {
-    //             if (response.data.loggedIn) {
-    //                 setLoginAuth(false);
-    //                 localStorage.removeItem("token");
-    //                 setLoginStatus(`Saiu`);
-    //             } else {
-    //                 console.log(response.data)
-    //             }
-    //         });
-    // };
 
     const userAuthenticated = () => {
         Axios.get('http://localhost:3001/isUserAuth', {
@@ -95,14 +82,6 @@ const SignIn = () => {
                     >
                         Entrar
                     </button>
-
-                    {/* <button
-                                type="button"
-                                className="btn btn-primary"
-                                onClick={logout}
-                            >
-                                Logout
-                            </button> */}
                 </div>
             </form>
 

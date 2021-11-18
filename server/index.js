@@ -57,6 +57,7 @@ app.post('/register', (req, res) => {
             [username, hash],
             (err, result) => {
                 console.log(err);
+                res.send({ result: "usuário criado" })
             }
         );
     });
@@ -137,13 +138,16 @@ app.post('/login', (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-    if (req.session.user) {
-        res.send({ loggedIn: true });
-        
-    } else {
+    const token = req.headers["x-access-token"]
+
+    if (!token) {
         res.send({ loggedIn: false, message: "You are not logged in." })
+    } else {
+        res.send({ loggedIn: true });
     }
 })
+
+
 
 app.listen(3001, () => {
     console.log("running server in http://localhost:3001")
